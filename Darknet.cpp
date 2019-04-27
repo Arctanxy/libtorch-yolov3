@@ -13,6 +13,10 @@
 #include <typeinfo>
 
 // trim from start (in place)
+// 普通函数加static:只在本文件中有效
+// inline:建议编译器在函数调用处展开该函数
+// []匿名函数
+// isspace判断是否空格、制表符、换行符
 static inline void ltrim(std::string &s) {
     s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
         return !std::isspace(ch);
